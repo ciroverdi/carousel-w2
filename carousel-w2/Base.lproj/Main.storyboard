@@ -33,12 +33,18 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <connections>
+                                            <action selector="editingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="0xW-WJ-NaL"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" id="3HX-E0-frv">
                                         <rect key="frame" x="26" y="139" width="272" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="editingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="PLX-oy-ZeT"/>
+                                        </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign_in_buttons" id="XOw-4a-mAY">
                                         <rect key="frame" x="0.0" y="407" width="320" height="100"/>
@@ -62,10 +68,10 @@
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hzd-m8-Z2S">
-                                <rect key="frame" x="0.0" y="3" width="51" height="49"/>
+                                <rect key="frame" x="1" y="3" width="51" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="Xx4-qC-Y7i" kind="modal" animates="NO" id="Kyd-ry-EH4"/>
+                                    <action selector="goBack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KQ6-oC-yis"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -73,6 +79,7 @@
                     </view>
                     <connections>
                         <outlet property="actionView" destination="XOw-4a-mAY" id="ehE-to-dVJ"/>
+                        <outlet property="backButton" destination="hzd-m8-Z2S" id="yVt-C4-oa7"/>
                         <outlet property="createView" destination="Xxf-hB-JQ7" id="t8a-d0-rnA"/>
                         <outlet property="emailField" destination="Ign-2k-sxe" id="HDS-Ce-Li6"/>
                         <outlet property="formView" destination="FR2-rU-2dS" id="LO2-iD-P0d"/>
@@ -80,6 +87,7 @@
                         <outlet property="scrollView" destination="zQR-ud-YFg" id="fTp-pR-Dwk"/>
                         <outlet property="signInButton" destination="pFc-oC-Cpw" id="adw-3i-H9h"/>
                         <outlet property="signInIndicator" destination="8th-0K-Npw" id="lIn-Iw-IdZ"/>
+                        <segue destination="wOg-W7-jTi" kind="modal" identifier="loginSegue" id="z5n-TV-fdt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -89,7 +97,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="565" y="696"/>
+            <point key="canvasLocation" x="566" y="696"/>
         </scene>
         <!--Intro View Controller-->
         <scene sceneID="HhJ-d5-zMu">
@@ -165,22 +173,84 @@
             </objects>
             <point key="canvasLocation" x="130" y="980"/>
         </scene>
-        <!--View Controller-->
+        <!--Tutorial View Controller-->
         <scene sceneID="OWa-ci-8U1">
             <objects>
-                <viewController id="wOg-W7-jTi" sceneMemberID="viewController">
+                <viewController id="wOg-W7-jTi" customClass="TutorialViewController" customModule="carousel_w2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lKE-Lj-D7O">
+                        <rect key="frame" x="0.0" y="0.0" width="1280" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" id="FbS-vk-Vt8">
+                                <rect key="frame" x="0.0" y="531" width="320" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="51m-cf-Kll">
+                                <rect key="frame" x="0.0" y="0.0" width="1280" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome1" id="2bQ-TX-rhS">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="531"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome2" id="rS5-ZH-dca">
+                                        <rect key="frame" x="320" y="0.0" width="320" height="531"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome3" id="E9D-Xj-2Ug">
+                                        <rect key="frame" x="640" y="0.0" width="320" height="531"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome4" id="J1I-G5-DUm">
+                                        <rect key="frame" x="960" y="0.0" width="320" height="531"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backup_button" id="pBP-ua-kvA">
+                                        <rect key="frame" x="960" y="468" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kRe-Mr-2pw">
+                                        <rect key="frame" x="978" y="511" width="302" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <segue destination="OhW-qv-inn" kind="modal" animates="NO" id="azK-NX-SfH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1280" height="568"/>
+                    <connections>
+                        <outlet property="pageControl" destination="FbS-vk-Vt8" id="Hct-qb-Roo"/>
+                        <outlet property="scrollView" destination="51m-cf-Kll" id="Ekj-z4-trW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jtC-B9-zMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1648" y="696"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6HR-i2-nf1">
+            <objects>
+                <viewController id="OhW-qv-inn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g0K-Pz-9Ju">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jtC-B9-zMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8b1-I4-qaX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1095" y="696"/>
+            <point key="canvasLocation" x="2557" y="696"/>
         </scene>
     </scenes>
     <resources>
+        <image name="backup_button" width="320" height="97"/>
         <image name="create_form" width="320" height="192"/>
         <image name="create_text" width="320" height="63"/>
         <image name="intro" width="320" height="1136"/>
@@ -192,5 +262,9 @@
         <image name="intro_tile6" width="76" height="75"/>
         <image name="sign_in_buttons" width="320" height="104"/>
         <image name="sign_in_nav_bar" width="320" height="66"/>
+        <image name="welcome1" width="320" height="568"/>
+        <image name="welcome2" width="320" height="568"/>
+        <image name="welcome3" width="320" height="568"/>
+        <image name="welcome4" width="320" height="568"/>
     </resources>
 </document>

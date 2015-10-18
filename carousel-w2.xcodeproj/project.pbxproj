@@ -17,6 +17,7 @@
 		185EC3021BCEBC8400ECF22C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EC3011BCEBC8400ECF22C /* Common.swift */; settings = {ASSET_TAGS = (); }; };
 		185EC3191BCF03AC00ECF22C /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EC3181BCF03AC00ECF22C /* IntroViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		185EC31B1BD0291E00ECF22C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EC31A1BD0291E00ECF22C /* SignInViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		18D08AB81BD32C0000177F46 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D08AB71BD32C0000177F46 /* TutorialViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		185EC3011BCEBC8400ECF22C /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		185EC3181BCF03AC00ECF22C /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		185EC31A1BD0291E00ECF22C /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		18D08AB71BD32C0000177F46 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			children = (
 				185EC3181BCF03AC00ECF22C /* IntroViewController.swift */,
 				185EC31A1BD0291E00ECF22C /* SignInViewController.swift */,
+				18D08AB71BD32C0000177F46 /* TutorialViewController.swift */,
 				185EC2D51BCEBAA800ECF22C /* ViewController.swift */,
 			);
 			name = ViewControllers;
@@ -279,6 +282,7 @@
 				185EC3021BCEBC8400ECF22C /* Common.swift in Sources */,
 				185EC2D41BCEBAA800ECF22C /* AppDelegate.swift in Sources */,
 				185EC31B1BD0291E00ECF22C /* SignInViewController.swift in Sources */,
+				18D08AB81BD32C0000177F46 /* TutorialViewController.swift in Sources */,
 				185EC3191BCF03AC00ECF22C /* IntroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

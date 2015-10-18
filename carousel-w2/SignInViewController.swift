@@ -14,6 +14,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var createView: UIImageView!
     @IBOutlet weak var formView: UIImageView!
@@ -40,6 +41,7 @@ class SignInViewController: UIViewController {
         signInIndicatorInitialY = signInIndicator.center.y
         
         signInButton.enabled = false
+        signInIndicator.hidden = true
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
@@ -73,34 +75,39 @@ class SignInViewController: UIViewController {
     @IBAction func didTap(sender: AnyObject) {
         view.endEditing(true)
     }
+
+    @IBAction func editingChanged(sender: AnyObject) {
+        if emailField.text!.isEmpty && passwordField.text!.isEmpty {
+            signInButton.enabled = false
+            
+        } else {
+            signInButton.enabled = true
+        }
+    }
+    
+    @IBAction func goBack(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+        backButton.transform = CGAffineTransformIdentity
+    }
     
     @IBAction func onSigIn(sender: AnyObject) {
         
-        signInButton.selected = true
+        signInIndicator.hidden = false
         signInIndicator.startAnimating()
 
-        if emailField.text == "ciroverdi" && passwordField.text == "password" {
+        if emailField.text == "ciro" && passwordField.text == "pwd" {
             delay(2, closure: { () -> () in
-//                self.performSegueWithIdentifier("loginSegue", sender: nil)
+                self.performSegueWithIdentifier("loginSegue", sender: nil)
                 self.signInIndicator.stopAnimating()
+                self.signInIndicator.hidden = true
                 self.emailField.text = ""
                 self.passwordField.text = ""
-                self.signInButton.selected = false
             })
-        } else if (emailField.text!.isEmpty || passwordField.text!.isEmpty) {
-            delay(2, closure: { () -> () in
-                var emptyAlert = UIAlertView(title: "Access Denied", message: "Empty email or password", delegate: self, cancelButtonTitle: "OK")
-                emptyAlert.show()
-                self.signInIndicator.stopAnimating()
-                self.signInButton.selected = false
-            })
-
         } else {
             delay(2, closure: { () -> () in
-                var errorAlert = UIAlertView(title: "Access Denied", message: "Wrong email or password", delegate: self, cancelButtonTitle: "OK")
-                errorAlert.show()
+                UIAlertView(title: "Access Denied", message: "Wrong email or password", delegate: self, cancelButtonTitle: "OK").show()
                 self.signInIndicator.stopAnimating()
-                self.signInButton.selected = false
+                self.signInIndicator.hidden = true
             })
         }
     }
