@@ -296,12 +296,49 @@
                     <view key="view" contentMode="scaleToFill" id="3Ii-p2-QQ9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_nav" id="eMP-MV-2vK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3ZN-AI-cWU">
+                                <rect key="frame" x="0.0" y="60" width="320" height="508"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings" id="nie-NX-HSS">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="720"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KRd-PF-a4r">
+                                        <rect key="frame" x="0.0" y="660" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="signOut:" destination="BOb-hS-6oe" eventType="touchUpInside" id="heT-Ew-157"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CpY-mY-yaK">
+                                <rect key="frame" x="0.0" y="0.0" width="59" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="goBack:" destination="BOb-hS-6oe" eventType="touchUpInside" id="4fh-r7-77O"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="CpY-mY-yaK" id="yFr-FD-9ow"/>
+                        <outlet property="imageView" destination="nie-NX-HSS" id="3PI-4G-eTb"/>
+                        <outlet property="scrollView" destination="3ZN-AI-cWU" id="71m-ga-KyN"/>
+                        <outlet property="signOutButton" destination="KRd-PF-a4r" id="yK1-Xc-UFF"/>
+                        <segue destination="Xx4-qC-Y7i" kind="modal" identifier="signOutSegue" id="sf7-b2-3Ki"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sej-3M-XBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2980" y="1322"/>
+            <point key="canvasLocation" x="2980" y="1324"/>
         </scene>
         <!--Conversations View Controller-->
         <scene sceneID="7eM-VB-iYo">
@@ -349,6 +386,8 @@
         <image name="intro_tile5" width="76" height="75"/>
         <image name="intro_tile6" width="76" height="75"/>
         <image name="scrubber" width="320" height="36"/>
+        <image name="settings" width="320" height="695"/>
+        <image name="settings_nav" width="320" height="64"/>
         <image name="sign_in_buttons" width="320" height="104"/>
         <image name="sign_in_nav_bar" width="320" height="66"/>
         <image name="welcome1" width="320" height="568"/>
